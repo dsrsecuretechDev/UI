@@ -25,14 +25,16 @@ function Sidebar() {
       <div
         className={`${
           open ? "w-72" : "w-20"
-        } bg-slate-50 h-screen p-5 pt-8 relative duration-300`}
+        } bg-gray-900 text-gray-100 h-screen p-5 pt-8 relative duration-300`}
       >
         <button
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-           border-2 rounded-full  ${!open && "rotate-180"}`}
+          className={`absolute cursor-pointer ${
+            open ? "-right-3" : "-right-1.5 border-2"
+          } top-9 w-7 border-gray-900
+            rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         >
-          <FaArrowCircleLeft color="purple" size={18} />
+          <FaArrowCircleLeft color="white" size={20} />
         </button>
         <div className="flex gap-x-4 items-center justify-start">
           <img
@@ -43,7 +45,7 @@ function Sidebar() {
             }`}
           />
           <h1
-            className={`text-purple-500 select-none origin-left font-medium text-xl duration-200 ${
+            className={`text-green-400 select-none origin-left font-medium text-xl duration-200 ${
               !open && "scale-0"
             }`}
           >
@@ -51,73 +53,57 @@ function Sidebar() {
           </h1>
         </div>
         <br />
-        <div className="h-[1px] w-full bg-slate-500 rounded-lg"></div>
+        <div className="h-[1px] w-full bg-gray-700 rounded-lg"></div>
         <ul className="flex pt-10 flex-col gap-5">
           <li>
             <Link
               title="Dashboard"
               to={"/"}
-              className="flex rounded-md p-2 shadow-sm cursor-pointer bg-purple-300 hover:text-white text-gray-300 text-sm items-center gap-x-4 select-none"
+              className="flex rounded-md p-2 shadow-sm cursor-pointer bg-gray-800 hover:bg-green-500 text-sm items-center gap-x-4 select-none"
             >
-              <FaHome size={20} color="black" />
+              <FaHome size={20} color="white" />
               <span
                 className={`${
-                  open ? "text-xl text-purple-500 font-medium" : "hidden"
+                  open ? "text-xl text-gray-100 font-medium" : "hidden"
                 }`}
               >
                 Dashboard
               </span>
             </Link>
           </li>
-          <li className="relative group">
+          <li className="relative">
             <div
-              className="flex rounded-md p-2 cursor-pointer hover:bg-purple-300 hover:text-white text-gray-300 text-sm items-center gap-x-4 select-none"
+              className="flex rounded-md p-2 cursor-pointer hover:bg-green-500 text-gray-100 text-sm items-center gap-x-4 select-none"
               onClick={handleDropdown}
             >
-              <FaUser size={20} color="black" />
+              <FaUser size={20} color="white" />
               {open && (
                 <h1
-                  className={`text-purple-500 font-medium text-xl duration-200 hover:text-black`}
+                  className={`font-medium text-xl duration-200 hover:text-white`}
                 >
                   Profile
                 </h1>
               )}
               {open &&
                 (dropdownOpen ? (
-                  <FaChevronUp size={18} color="black" className="ml-auto" />
+                  <FaChevronUp size={18} color="white" className="ml-auto" />
                 ) : (
-                  <FaChevronDown size={18} color="black" className="ml-auto" />
+                  <FaChevronDown size={18} color="white" className="ml-auto" />
                 ))}
             </div>
-            {open && dropdownOpen && (
-              <ul className="pl-5">
-                <li>
-                  <Link
-                    to={"/addProfile"}
-                    className="flex items-center gap-5 p-2 hover:bg-purple-400 rounded-md select-none"
-                  >
-                    <IoMdAddCircle size={20} />
-                    <span>Add Profile</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={"/listProfile"}
-                    className="flex items-center gap-5 p-2 hover:bg-purple-400 rounded-md select-none"
-                  >
-                    <CiCircleList size={20} />
-                    <span>List Profile</span>
-                  </Link>
-                </li>
-              </ul>
-            )}
-            {!open && (
-              <div className="absolute left-20 top-0 hidden group-hover:block bg-slate-50 p-2 rounded-md shadow-lg z-10">
+            {(dropdownOpen || (!open && dropdownOpen)) && (
+              <div
+                className={`${
+                  open
+                    ? "pl-5"
+                    : "absolute left-20 top-0 bg-gray-900 p-2 rounded-md shadow-lg z-10"
+                }`}
+              >
                 <ul>
                   <li>
                     <Link
                       to={"/addProfile"}
-                      className="flex items-center gap-2 p-2 hover:bg-purple-400 rounded-md select-none"
+                      className="flex items-center gap-5 p-2 hover:bg-green-500 rounded-md select-none"
                     >
                       <IoMdAddCircle size={20} />
                       <span>Add Profile</span>
@@ -126,7 +112,7 @@ function Sidebar() {
                   <li>
                     <Link
                       to={"/listProfile"}
-                      className="flex items-center gap-2 p-2 hover:bg-purple-400 rounded-md select-none"
+                      className="flex items-center gap-5 p-2 hover:bg-green-500 rounded-md select-none"
                     >
                       <CiCircleList size={20} />
                       <span>List Profile</span>
@@ -138,9 +124,9 @@ function Sidebar() {
           </li>
         </ul>
         <div
-          className={`absolute bottom-5 left-5  h-auto flex items-center justify-between gap-x-4 ${
-            open ? "bg-slate-200 w-[250px]" : "bg-red-500"
-          } transition-colors shadow-md  p-1 rounded-lg`}
+          className={`absolute bottom-5 left-5 h-auto flex items-center justify-between gap-x-4 ${
+            open ? "bg-gray-700 w-[250px]" : "bg-red-500"
+          } transition-colors shadow-md p-1 rounded-lg`}
         >
           {open && (
             <div className="flex items-center gap-4">
