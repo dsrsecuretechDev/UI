@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./output.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./components/Dashboard.jsx";
-import AddProfile from "./components/AddProfile.jsx";
-import Layout from "./Layout.jsx";
-import ListProfile from "./components/ListProfile.jsx";
-import LogoutUser from "./components/Logout.jsx";
+import Dashboard from "./components/Dashboard/Dashboard.jsx";
+import AddProfile from "./components/Profiles/AddProfile.jsx";
+import ListProfile from "./components/Profiles/ListProfile.jsx";
+import Layout from "./components/ParentLayout/Layout.jsx";
+import LogoutUser from "./components/Auth/Logout.jsx";
 
 const router = createBrowserRouter([
   {

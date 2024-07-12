@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import dsrLogo from "../assets/dsrLogo.jpeg";
-import profile from "../assets/profile.jpg";
+import dsrLogo from "../../assets/dsrLogo.jpeg";
+import profile from "../../assets/profile.jpg";
 import {
   FaArrowCircleLeft,
   FaChevronDown,
@@ -41,7 +41,7 @@ function Sidebar() {
             src={dsrLogo}
             onClick={() => setOpen(!open)}
             className={`cursor-pointer duration-500 h-8 w-8 rounded-full shadow-lg ${
-              open && "rotate-[360deg] h-12 w-12"
+              open && "rotate-[360deg] h-12 w-12 opacity-90"
             }`}
           />
           <h1
@@ -59,12 +59,12 @@ function Sidebar() {
             <Link
               title="Dashboard"
               to={"/"}
-              className="flex rounded-md p-2 shadow-sm cursor-pointer bg-gray-800 hover:bg-green-500 text-sm items-center gap-x-4 select-none"
+              className="flex rounded-md p-2 shadow-sm cursor-pointer hover:text-slate-200 bg-gray-800 hover:bg-green-500 text-sm items-center gap-x-4 select-none"
             >
-              <FaHome size={20} color="white" />
+              <FaHome size={20} color="gray" />
               <span
                 className={`${
-                  open ? "text-xl text-gray-100 font-medium" : "hidden"
+                  open ? "text-xl text-gray-200 font-normal" : "hidden"
                 }`}
               >
                 Dashboard
@@ -76,19 +76,19 @@ function Sidebar() {
               className="flex rounded-md p-2 cursor-pointer hover:bg-green-500 text-gray-100 text-sm items-center gap-x-4 select-none"
               onClick={handleDropdown}
             >
-              <FaUser size={20} color="white" />
+              <FaUser size={20} color="gray" />
               {open && (
                 <h1
-                  className={`font-medium text-xl duration-200 hover:text-white`}
+                  className={`font-normal text-xl text-gray-200 duration-200 hover:text-white`}
                 >
                   Profile
                 </h1>
               )}
               {open &&
                 (dropdownOpen ? (
-                  <FaChevronUp size={18} color="white" className="ml-auto" />
+                  <FaChevronUp size={18} color="gray" className="ml-auto" />
                 ) : (
-                  <FaChevronDown size={18} color="white" className="ml-auto" />
+                  <FaChevronDown size={18} color="gray" className="ml-auto" />
                 ))}
             </div>
             {(dropdownOpen || (!open && dropdownOpen)) && (
@@ -125,7 +125,7 @@ function Sidebar() {
         </ul>
         <div
           className={`absolute bottom-5 left-5 h-auto flex items-center justify-between gap-x-4 ${
-            open ? "bg-gray-700 w-[250px]" : "bg-red-500"
+            open ? "bg-gray-700 w-[250px]" : "bg-red-500 opacity-90"
           } transition-colors shadow-md p-1 rounded-lg`}
         >
           {open && (
@@ -147,7 +147,7 @@ function Sidebar() {
             <IoMdLogOut
               size={22}
               color={open ? "gray" : "white"}
-              className="hover:text-red-500"
+              className="hover:text-red-500 "
             />
           </Link>
         </div>
