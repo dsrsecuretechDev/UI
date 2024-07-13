@@ -23,14 +23,12 @@ function Sidebar() {
   return (
     <div className="flex">
       <div
-        className={`${
-          open ? "w-72" : "w-20"
-        } bg-gray-900 text-gray-100 h-screen p-5 pt-8 relative duration-300`}
+        className={`${open ? "w-72" : "w-20"
+          } bg-gray-900 text-gray-100 h-screen p-5 pt-8 relative duration-300`}
       >
         <button
-          className={`absolute cursor-pointer ${
-            open ? "-right-3" : "-right-1.5 border-2"
-          } top-9 w-7 border-gray-900
+          className={`absolute cursor-pointer ${open ? "-right-3" : "-right-1.5 border-2"
+            } top-9 w-7 border-gray-900
             rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         >
@@ -40,14 +38,12 @@ function Sidebar() {
           <img
             src={dsrLogo}
             onClick={() => setOpen(!open)}
-            className={`cursor-pointer duration-500 h-8 w-8 rounded-full shadow-lg ${
-              open && "rotate-[360deg] h-12 w-12"
-            }`}
+            className={`cursor-pointer duration-500 h-8 w-8 rounded-full shadow-lg ${open && "rotate-[360deg] h-12 w-12"
+              }`}
           />
           <h1
-            className={`text-green-400 select-none origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
-            }`}
+            className={`text-green-400 select-none origin-left font-medium text-xl duration-200 ${!open && "scale-0"
+              }`}
           >
             DSR Secure Tech
           </h1>
@@ -63,9 +59,8 @@ function Sidebar() {
             >
               <FaHome size={20} color="white" />
               <span
-                className={`${
-                  open ? "text-xl text-gray-100 font-medium" : "hidden"
-                }`}
+                className={`${open ? "text-xl text-gray-100 font-medium" : "hidden"
+                  }`}
               >
                 Dashboard
               </span>
@@ -91,13 +86,12 @@ function Sidebar() {
                   <FaChevronDown size={18} color="white" className="ml-auto" />
                 ))}
             </div>
-            {(dropdownOpen || (!open && dropdownOpen)) && (
+            {(open && dropdownOpen) && (
               <div
-                className={`${
-                  open
+                className={`${open
                     ? "pl-5"
                     : "absolute left-20 top-0 bg-gray-900 p-2 rounded-md shadow-lg z-10"
-                }`}
+                  }`}
               >
                 <ul>
                   <li>
@@ -124,9 +118,8 @@ function Sidebar() {
           </li>
         </ul>
         <div
-          className={`absolute bottom-5 left-5 h-auto flex items-center justify-between gap-x-4 ${
-            open ? "bg-gray-700 w-[250px]" : "bg-red-500"
-          } transition-colors shadow-md p-1 rounded-lg`}
+          className={`absolute bottom-5 left-5 h-auto flex items-center justify-between gap-x-4 ${open ? "bg-gray-700 w-[250px]" : "bg-red-500"
+            } transition-colors shadow-md p-1 rounded-lg`}
         >
           {open && (
             <div className="flex items-center gap-4">
